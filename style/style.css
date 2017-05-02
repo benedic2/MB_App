@@ -1,0 +1,99 @@
+form a {
+    margin-left: 5px;
+}
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+  background-color: #f2f2f2;
+  padding: 25px;
+}
+.jumbotron {
+    position: relative;
+    background-image:  url('../resource/Background.jpg');
+    width: 100%;
+    height: 10%;
+    background-size: cover;
+    overflow: hidden;
+}
+.headshot {
+    background-image: url('../resource/Head.png');
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    /* make it responsive */
+/*max-width: 50%;
+width:50%;
+height:auto;
+display:block; */
+/* div height to be the same as width*/
+padding-top:50%;   
+}
+.img-head {
+    border: 6px solid rgba(0,0,0,.7); 
+
+}
+.highlighter {
+    background: rgba(0,0,0,.5);
+    color: white;
+    padding: 2%;
+}
+.maintext {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+.thumbnail {
+    position: relative;
+}
+
+.caption {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+}
+
+
+.footerBanner div h2 {
+    background:rgba(255,255,255,0.8);
+    color: black;
+}
+
+.footerBanner:hover div h2 {
+    background:rgba(0,0,0,0.5);
+    color: white;
+     -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+     -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.smedia {
+    height: 20px;
+    width: 20px;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+
+}
+.overlay1{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  background-color: rgba(0,0,0,0.5); /*dim the background*/
+}
