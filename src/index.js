@@ -5,9 +5,10 @@ import { createStore, applyMiddleware } from 'redux';
 import {Router, browserHistory, hashHistory} from 'react-router';
 
 import routes from './routes'
-import reducers from './reducers';
 import App from './components/app';
 import '../style/style.css';
+import '../style/style_new.css';
+import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 

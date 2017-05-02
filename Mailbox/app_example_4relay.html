@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html manifest="manifest.manifest">
+    
+	<meta http-equiv="refresh" content="30">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- links to icons-->
+<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="57x57" href="assets/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="assets/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="assets/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="assets/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="assets/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="assets/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180x180.png" />
+    
+    <!-- Some stuff to make the page look like an app -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+<body>
+  <!-- Bootstrap CSS link: http://getbootstrap.com/css/ -->
+  <div align="center">  
+	  <div align="center">
+		<!-- Exercise 3: Add a label for the sensor value (bootstrap class="label label-info") -->
+		<label fontSize = 25px>Current temperature:  </label>
+		<label id="temp"></label>
+		<label> F</label>
+	  </div>
+	  <div align="center">
+		<button onClick="RelayOn('relay1')" class="btn btn-lg btn-info">Relay1 ON</button>
+		<button onClick="RelayOff('relay1')" class="btn btn-lg btn-info">Relay1 OFF</button>
+	  </div>
+      	  <div align="center">
+		<button onClick="RelayOn('relay2')" class="btn btn-lg btn-info">Relay2 ON</button>
+		<button onClick="RelayOff('relay2')" class="btn btn-lg btn-info">Relay2 OFF</button>
+	  </div>
+      	  <div align="center">
+		<button onClick="RelayOn('relay3')" class="btn btn-lg btn-info">Relay3 ON</button>
+		<button onClick="RelayOff('relay3')" class="btn btn-lg btn-info">Relay3 OFF</button>
+	  </div>
+      	  <div align="center">
+		<button onClick="RelayOn('relay4')" class="btn btn-lg btn-info">Relay4 ON</button>
+		<button onClick="RelayOff('relay4')" class="btn btn-lg btn-info">Relay4 OFF</button>
+	  </div>
+	  <div align="center">
+		<label fontSize = 25px>Chiller status:  </label>
+		<label id="status"></label>
+	  </div>
+	<!--  Google graph of temperature vs time  -->
+	<iframe width="2000" height="1400" seamless frameborder="0" scrolling="no" align="center" src="https://docs.google.com/spreadsheets/d/14ylDZYOvapGPPCL13AEzbqp4BT9KGhROx_LmBWp5iao/pubchart?oid=1101751837&amp;format=interactive"></iframe>	  
+	</div>
+
+  <script type="text/javascript">
+// Must add the photon info here
+    var deviceID = "Enter Device number here";
+    var deviceID2 = "36002d000e47353136383631";
+    var accessToken = "1148f7086106a0c64aa4addeae91be5ef1cf6038";
+    var temp_var = "temp";
+	var status = "status";
+    var requestURL1 = "https://api.particle.io/v1/devices/" + deviceID + "/" + temp_var + "/?access_token=" + accessToken;
+	var requestURL2 = "https://api.particle.io/v1/devices/" + deviceID2 + "/" + status + "/?access_token=" + accessToken;
+    function RelayOn(setFunc) {
+      var newValue = "ON";
+      var requestURL = "https://api.particle.io/v1/devices/" + deviceID2 + "/" + setFunc + "/";
+        $.post( requestURL, { params: newValue, access_token: accessToken });
+    }
+    function RelayOff(setFunc) {
+      var newValue = "OFF";
+      var requestURL = "https://api.particle.io/v1/devices/" + deviceID2 + "/" + setFunc + "/";
+        $.post( requestURL, { params: newValue, access_token: accessToken });
+    }
+    window.setInterval(function() {
+    $.getJSON(requestURL1, function(json) {
+               document.getElementById("temp").innerHTML = json.result;
+               document.getElementById("temp").style.fontSize = "25px";
+               });
+
+    }, 2000);
+    window.setInterval(function() {
+    $.getJSON(requestURL2, function(json) {
+               document.getElementById("status").innerHTML = json.result;
+               document.getElementById("status").style.fontSize = "25px";
+               });
+
+    }, 2000);
+    </script>
+	</body>
+  </html>

@@ -7,10 +7,8 @@ form a {
 }
 
 /* Add a gray background color and some padding to the footer */
-footer {
-  background-color: #f2f2f2;
-  padding: 25px;
-}
+
+
 .jumbotron {
     position: relative;
     background-image:  url('../resource/Background.jpg');

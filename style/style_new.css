@@ -1,0 +1,44 @@
+.footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+    text-align: center;
+    height: 10%;
+}
+.navbar-top {
+    text-align: center;
+    font-size: 30px;
+    height: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.ninety-height {
+    height: 91%;
+}
+.third-row{
+    height: 30%;
+    text-align: center;
+}
+
+two-third-row{
+    height: 60%;
+}
+
+.nav-row{
+    height:10%;
+}
+
+.main-container {
+    height:100%;
+    text-align: center;
+}
+
+html, body, container, container-fluid {
+    height:100%;
+}
+
+.container{
+    height: 100%;
+}

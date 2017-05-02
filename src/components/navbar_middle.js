@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 
-export default class NavBar extends Component {
+export default class NavBarMiddle extends Component {
 
     render (){
         return (
@@ -15,7 +15,7 @@ export default class NavBar extends Component {
                                 </Link>
                             </div>
                             <div className="col-xs-8">
-                                Go Box
+                                Hot
                             </div>                     
                         </div>
                     </div>

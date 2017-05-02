@@ -6,8 +6,7 @@ import Footer from './footer';
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <NavBar />
+      <div className="ninety-height">
         {this.props.children}
         <Footer />
     </div>
